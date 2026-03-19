@@ -1,0 +1,14 @@
+[2026-03-18]
+User Unable to Sign In Due to Incorrect UPN
+
+Attempted sign-in with an incorrect username format and reproduced the failure
+
+Reviewed the user account in Microsoft Entra and confirmed the correct User Principal Name
+
+Retested sign-in using the full correct UPN
+
+Verified that sign-in proceeded normally once the correct username format was used
+
+Working conclusion: the issue was caused by incorrect username entry rather than password failure or account status
+
+Note: That it is common for users to enter their email address instead of the correct UPN when signing in

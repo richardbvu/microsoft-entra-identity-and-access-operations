@@ -1,0 +1,6 @@
+Groups and Access Control Notes
+
+- Created a Security group in Microsoft Entra named IT-Support-Team.
+- Added Carol Mercer, Adri Castillo, and Lena White as group members.
+- Reviewed the group overview and membership list after creation.
+- This step was used to understand how groups are managed in Entra and how access can be organized at the group level instead of assigning settings to individual users one at a time.

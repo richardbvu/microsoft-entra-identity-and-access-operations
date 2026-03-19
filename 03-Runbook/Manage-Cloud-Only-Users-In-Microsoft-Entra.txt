@@ -1,0 +1,62 @@
+# Manage Cloud-Only Users in Microsoft Entra
+
+## Purpose
+Use this runbook to create and manage cloud-only user accounts in Microsoft Entra Admin Center.
+
+## Scope
+Microsoft Entra environments where user accounts are managed directly in the cloud and are not synchronized from on-premises Active Directory.
+
+## Common Symptoms
+- New user account needs to be created for cloud access
+- Existing user profile information needs to be updated
+- User sign-in must be temporarily blocked or re-enabled
+- Password must be reset for a cloud-managed account
+- Deleted user account needs to be restored
+
+## Quick Rule
+If the user account is cloud-only, common lifecycle actions can be completed directly in Microsoft Entra Admin Center.
+
+## Troubleshooting Steps
+
+### 1. Create a cloud-only user
+- Open Microsoft Entra Admin Center
+- Navigate to Identity → Users → All users
+- Select New user → Create new user
+- Enter display name, user principal name, and password settings
+- Create the account
+
+### 2. Update user profile fields
+- Open the user account
+- Edit fields such as job title, department, office location, and usage location
+- Save the changes
+
+### 3. Block or re-enable sign-in
+- Open the user account
+- Go to Properties
+- Clear Account enabled to block sign-in
+- Check Account enabled to re-enable sign-in
+- Save the changes
+
+### 4. Reset user password
+- Open the user account
+- Select Reset password
+- Generate or assign a temporary password
+- Save the new password information as needed for testing
+
+### 5. Delete and restore a user
+- Open the user account
+- Select Delete user
+- Navigate to Identity → Users → Deleted users
+- Locate the deleted account
+- Select Restore
+
+## Resolution Guidance
+Cloud-only user accounts can be fully managed in Microsoft Entra for common lifecycle tasks, including account creation, profile updates, password resets, sign-in control, deletion, and restoration.
+
+## Verification
+- Confirm the user appears in All users after creation
+- Confirm updated profile values are saved
+- Confirm blocked users cannot sign in
+- Confirm re-enabled users can sign in again
+- Confirm the password reset completes successfully
+- Confirm deleted users appear in Deleted users and can be restored

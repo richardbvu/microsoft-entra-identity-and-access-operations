@@ -1,0 +1,51 @@
+# User Sign-In Issue Troubleshooting
+
+## Purpose
+Use this runbook when a user reports they are unable to sign in to their Microsoft Entra account.
+
+## Scope
+Cloud-only user accounts in the Microsoft Entra lab tenant.
+
+## Common Symptoms
+- User cannot sign in after account creation  
+- Sign-in attempt fails without clear error  
+- User cannot complete first-time login  
+
+## Quick Rule
+Always verify **account status** before performing password resets.
+
+Do not assume a password issue if the account may be disabled.
+
+## Troubleshooting Steps
+
+### 1. Verify user account exists
+Go to Microsoft Entra Admin Center:
+- Navigate to Identity → Users → All users  
+- Search for the affected user  
+- Confirm the account exists and the username is correct  
+
+### 2. Check account status
+- Open the user account  
+- Locate **Account enabled** setting  
+- If disabled, the user will not be able to sign in  
+
+### 3. Validate the issue
+- Attempt sign-in with the user account (lab/testing scenario)  
+- Confirm sign-in fails while the account is disabled  
+
+### 4. Restore account access
+- Set **Account enabled** to active  
+- Save changes  
+
+### 5. Validate sign-in behavior
+- Attempt sign-in again  
+- Confirm the user reaches the first-time password change prompt  
+
+### 6. Determine if password reset is required
+- If the user reaches the password change prompt, no admin reset is required  
+- If sign-in still fails, perform an administrative password reset  
+
+## Notes
+- Disabled accounts are a common cause of new-user sign-in issues  
+- Avoid unnecessary password resets when account status is the root cause  
+- Always validate access after making changes  

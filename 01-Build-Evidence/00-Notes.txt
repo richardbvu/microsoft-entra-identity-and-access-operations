@@ -1,0 +1,117 @@
+[2026-03-13]
+Environment Background
+
+Before starting this project environment, I previously built an Active Directory lab and successfully configured Microsoft Entra Connect, creating a hybrid identity environment. 
+
+Because of that configuration, some user accounts in the tenant are synchronized from on-premises Active Directory and cannot be fully managed from the cloud. 
+
+The original CORP environment is now legacy, and the current project work focuses only on the new project admin account and newly created lab users.
+
+[2026-03-13]
+Tenant validations
+
+Validated:
+What tenant you are in?
+Who the admin accounts are?
+Whether users are cloud-only or synced?
+Whether Entra Connect / hybrid identity exists?
+
+Richard Vu
+- User type: Member
+- Synced from on-premises: No
+- Notes: Original admin created with Entra
+
+Richard Global Admin
+- User type: Member
+- Synced from on-premises: No
+- Notes: User with Global Admin/Hybrid Identity Admin created for Entra connect
+
+[2026-03-14]
+Cloud User Management
+
+- Created three cloud-only users in Microsoft Entra Admin Center
+- Updated profile fields for selected users, including job title, department, office location, and usage location
+- Disabled sign-in for one test user by clearing Account enabled
+- Verified blocked sign-in behavior by testing the account through the Microsoft sign-in page
+- Re-enabled the same user account after testing
+- Reset the password for Adri Castillo
+- Deleted Lena White and restored the account from Deleted users
+- Confirmed core cloud user lifecycle actions can be performed in the tenant
+
+[2026-03-15]
+Role Assignment
+
+- Reviewed built-in administrative roles in Microsoft Entra Admin Center
+- Selected the User Administrator role for testing
+- Assigned the role to Carol Mercer
+- Verified the role assignment
+- Removed the role after testing
+- Confirmed delegated permissions can be assigned and removed through Microsoft Entra RBAC (Role-Based Access Control)
+
+[2026-03-16]
+Signin and Audit Logs
+
+- Reviewed Microsoft Entra sign-in logs to identify user authentication activity.
+- Filtered sign-in activity by lab user account and opened event details for closer review.
+- Reviewed Microsoft Entra audit logs to identify administrative actions performed in the tenant.
+- Confirmed that sign-in logs track authentication activity and audit logs track administrative changes.
+
+[2026-03-17]
+License Operations
+
+- Reviewed licensing in Microsoft Entra to determine whether active assignable licenses were available in the tenant.
+- Verified that no active license assignments were currently available for testing in the lab environment.
+- Opened the user licensing view for Carol Mercer and confirmed that no license assignments were present.
+- Documented the current tenant limitation and identified where tenant-level and user-level license information is managed in Microsoft Entra.
+
+[2026-03-17]
+Groups and Membership Management
+
+- Created a Security group in Microsoft Entra named IT-Support-Team.
+- Added Carol Mercer, Adri Castillo, and Lena White as group members.
+- Reviewed group membership and confirmed users were successfully added.
+- This step was used to understand how users are organized into groups for access control scenarios.
+
+- Explored role-based access control (RBAC) with groups but identified a limitation in the lab environment.
+- The tenant is using Microsoft Entra ID Free, which does not support role-assignable groups.
+- Because of this, administrative roles could not be assigned to the group.
+- This clarified the difference between basic group membership management and RBAC-enabled group access, as well as the impact of licensing on identity management capabilities.
+
+[2026-03-17]
+Authentication Methods and Recovery Notes
+
+- Reviewed authentication method policies in Microsoft Entra and identified which methods were enabled or disabled.
+- Reviewed self-service password reset (SSPR) configuration and verified how password recovery is managed in the tenant.
+- Opened a user authentication methods view to understand how authentication options are managed at the user level.
+- This section was used to understand where authentication and recovery settings are configured in Entra.
+
+- Identified a limitation in the lab environment due to Microsoft Entra ID Free licensing.
+- Advanced authentication features and full configuration scenarios were not available, so this section focused on configuration awareness rather than implementation.
+
+[2026-03-17]
+Administrative Units and Scoped Administration
+
+- Navigated to Administrative Units in the Entra Admin Center to review scoped administration capabilities.
+- Verified the Admin units overview page and documented tenant visibility for administrative units.
+- Created an administrative unit named "Branch Office IT" to simulate scoped administrative boundaries.
+- Reviewed available membership types, including Assigned, Dynamic User, and Dynamic Device.
+- Opened the administrative unit and reviewed available management areas such as users, groups, devices, and roles.
+- Tested dynamic membership configuration using a rule based on extensionAttribute14.
+- Dynamic membership configuration did not save in the lab tenant, consistent with Microsoft Entra ID P1 licensing requirements.
+- Reverted the administrative unit to an Assigned membership model to maintain a supported and functional configuration.
+- Documented administrative unit behavior and limitations as part of Entra operational awareness.
+- Limitation: Entra ID Free restricts dynamic membership functionality and advanced scoped administration scenarios.
+- Purpose: demonstrate understanding of administrative unit structure, scoped administration concepts, and tenant-based limitations.
+
+[2026-03-18]
+Self-Service Password Reset and User Experience Validation
+
+- Reviewed Password reset settings in Entra Admin Center
+- Documented SSPR overview configuration in the tenant
+- Opened Registration settings and reviewed user registration requirements
+- Confirmed registration options and authentication info re-confirmation settings were visible
+- Attempted to review Authentication methods settings for SSPR
+- Authentication methods page returned a forbidden error in the lab tenant
+- Documented partial SSPR visibility and tenant limitation instead of forcing unsupported access
+- Limitation: SSPR policy visibility was restricted in this environment due to role or licensing boundaries
+- Purpose: validate password reset configuration awareness and user-facing recovery settings in Entra

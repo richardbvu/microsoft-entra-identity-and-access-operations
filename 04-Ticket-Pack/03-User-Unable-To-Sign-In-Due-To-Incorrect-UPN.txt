@@ -1,0 +1,31 @@
+Ticket:
+User unable to sign in due to incorrect User Principal Name (UPN)
+
+Impact:
+User was unable to sign in, preventing access to their account
+
+Symptoms:
+- User reported failed sign-in attempt
+- Authentication did not proceed past the username stage
+- No indication of account lockout or password failure
+
+Troubleshooting:
+- Attempted sign-in using the provided username and reproduced the failure
+- Opened Microsoft Entra Admin Center
+- Navigated to Identity → Users → All users
+- Located and selected the affected user account
+- Reviewed the User Principal Name (UPN) configured for the account
+- Compared the attempted username with the actual UPN
+- Identified that the user was entering an incorrect username format
+- Retested sign-in using the correct full UPN
+
+Resolution:
+The user was entering an incorrect username during sign-in.
+
+- Provided the correct User Principal Name (UPN) to the user
+- Retested authentication using the correct UPN
+- Confirmed that sign-in proceeded successfully
+
+User Follow-Up:
+- User was instructed to use the full UPN when signing in
+- Noted that users commonly attempt to sign in using their email address instead of the correct UPN

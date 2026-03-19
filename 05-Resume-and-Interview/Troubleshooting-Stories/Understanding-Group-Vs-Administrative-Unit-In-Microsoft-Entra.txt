@@ -1,0 +1,11 @@
+I ran into confusion while working in Microsoft Entra around the difference between groups and administrative units, because at first they looked very similar. Both allowed me to organize users, and both had options for things like dynamic membership, so it wasn’t immediately clear when to use one over the other.
+
+Initially, I thought they might be interchangeable. For example, I assumed that if I created an administrative unit and added users to it, assigning a role to that unit might give those users permissions, similar to how groups work.
+
+After digging deeper and testing in the lab, I realized that groups and administrative units serve completely different purposes.
+
+Groups are used for access control. When you add a user to a group, that user receives access to resources, licenses, or policies assigned to that group. So groups answer the question, “Who gets access to what?”
+
+Administrative units, on the other hand, are used for scoped administration. They don’t give users permissions. Instead, they define a boundary for administrators. When you assign an administrative role at the scope of an administrative unit, you’re controlling what objects that admin can manage. So administrative units answer the question, “What objects can this admin manage?”
+
+This was important because it corrected my initial misunderstanding and gave me a much clearer mental model for how identity and access are structured in Microsoft Entra.

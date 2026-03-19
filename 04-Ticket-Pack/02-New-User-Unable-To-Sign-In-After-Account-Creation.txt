@@ -1,0 +1,29 @@
+Ticket:
+New user unable to sign in after account creation in Microsoft Entra
+
+Impact:
+Newly created user was unable to sign in, preventing onboarding and initial account access.
+
+Symptoms:
+- User account was successfully created in Microsoft Entra
+- Sign-in attempt failed during initial login
+- User unable to proceed with first-time access
+
+Troubleshooting:
+- Opened Microsoft Entra Admin Center
+- Navigated to Identity → Users → All users
+- Located and selected the dtoro user account
+- Verified user account details and username
+- Checked account status and identified Account enabled was turned off
+- Attempted sign-in using the user account and confirmed failure while account was disabled
+- Determined that disabled account state was preventing authentication
+
+Resolution:
+The user account was disabled after creation, which prevented sign-in.
+
+- Re-enabled the user account by setting Account enabled to active
+- Retested sign-in and confirmed access reached the first-time password change prompt
+- Verified that account access was restored and functioning as expected
+
+User Follow-Up:
+- User must complete the required first-time password change to finish account setup

@@ -1,0 +1,11 @@
+Issue observed
+Attempted to rename older mentor-era user accounts in Entra Admin Center.
+
+Result
+Core identity fields could not be edited from the cloud interface.
+
+Finding
+The affected accounts appear to be synced from on-premises Active Directory, so the "source of authority" is on-prem AD rather than Entra.
+
+Conclusion
+Cloud-side rename for those synced users is restricted. Changes should be made in on-prem AD and then synchronized to Entra.

@@ -1,0 +1,18 @@
+Microsoft Entra Identity and Access Operations Lab
+
+Built and validated a cloud identity management lab using Microsoft Entra (Azure AD) to simulate real-world IT support and administrative scenarios.
+
+Performed core identity operations including user lifecycle management, group management, authentication configuration, and audit/log review within an Entra ID Free tenant. Validated cloud-only user behavior and explored limitations related to licensing (RBAC group assignment, dynamic membership, authentication method visibility).
+
+Executed hands-on troubleshooting scenarios focused on authentication and identity issues, including:
+- diagnosing hybrid identity limitations when modifying synced user attributes
+- resolving sign-in failures caused by disabled accounts
+- identifying and correcting incorrect User Principal Name (UPN) usage during login
+
+Documented all work using structured build evidence, troubleshooting notes, and support-style tickets aligned to real helpdesk workflows.
+
+Demonstrated understanding of:
+- identity vs access management concepts
+- role-based access control (RBAC) fundamentals
+- scoped administration using Administrative Units
+- differences between cloud-only and hybrid identity objects

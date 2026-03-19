@@ -1,0 +1,13 @@
+I worked on a scenario where a user was unable to sign in to their Microsoft Entra account.
+
+At first, it looked like a standard authentication issue. The sign-in attempt failed early in the process, which suggested it might not be a password or account status issue.
+
+Instead of immediately checking passwords or resetting the account, I verified the user’s identity details in Microsoft Entra. I opened the user profile and reviewed the User Principal Name, which is the actual username used for authentication.
+
+When I compared that to what was being entered during sign-in, I realized the issue was the username format. The user was not entering the correct full UPN.
+
+I retried the sign-in using the correct UPN, and the authentication proceeded normally, confirming that the account itself was functioning properly.
+
+This situation helped reinforce that not all sign-in issues are caused by account problems. Sometimes the issue is simply how the username is being entered. It’s also common for users to try to sign in with their email address instead of the correct UPN, especially if those values are different.
+
+The key takeaway for me was to verify identity format early in the troubleshooting process before moving on to more complex fixes like password resets or account changes.

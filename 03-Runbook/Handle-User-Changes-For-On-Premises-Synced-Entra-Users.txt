@@ -1,0 +1,42 @@
+RUNBOOK
+
+Runbook Title
+Identify and Handle Microsoft Entra Users Synced From On-Premises Active Directory
+
+Purpose
+Provide a procedure for determining whether a Microsoft Entra user account is cloud-managed or synchronized from on-premises Active Directory and identify where administrative changes must be performed.
+
+Scope
+Applies to environments where Microsoft Entra Connect is configured and hybrid identity synchronization is active.
+
+Symptoms
+- Administrator cannot edit certain user attributes in Microsoft Entra
+- Rename or profile modifications are unavailable or restricted in the cloud interface
+
+Procedure
+- Open Microsoft Entra Admin Center
+- Navigate to Identity → Users → All users
+- Select the user account to review
+- Locate the On-premises sync status field
+
+Determine the source of authority:
+
+Cloud-managed user
+- On-premises sync: No
+- User attributes can be modified directly in Microsoft Entra
+
+On-premises synchronized user
+- On-premises sync: Yes
+- Core identity attributes must be modified in the on-premises Active Directory environment
+
+If the user is synchronized from on-premises:
+- Open Active Directory Users and Computers (ADUC) on the domain controller
+- Locate the user account
+- Modify the required attributes in ADUC
+- Allow Microsoft Entra Connect to synchronize the changes to Microsoft Entra
+
+Verification
+- Return to Microsoft Entra Admin Center
+- Navigate to Identity → Users
+- Locate the updated user account
+- Confirm that the attribute changes appear after synchronization completes

@@ -1,0 +1,7 @@
+Built and operated a Microsoft Entra (Azure AD) lab environment to perform identity lifecycle management, access control configuration, and authentication troubleshooting; resolved real-world scenarios including sign-in failures, incorrect identity formats, and hybrid directory limitations while documenting work in ticket-style and evidence-based formats
+
+Validated Microsoft Entra tenant configuration by identifying administrative accounts, confirming cloud-only versus synchronized users, and reviewing hybrid identity components before performing identity administration tasks.
+
+Administered cloud-only user lifecycle operations in Microsoft Entra, including account creation, profile updates, sign-in control, password resets, and deleted-user restoration.
+
+Implemented role-based access control in Microsoft Entra by assigning, verifying, and removing built-in administrative roles while following least-privilege access principles.

@@ -1,0 +1,9 @@
+I worked on a scenario where a newly created user was unable to sign in after their account was set up in Microsoft Entra.
+
+I started by verifying that the account existed and confirming that the username was correct. Instead of immediately resetting the password, I attempted to reproduce the issue by signing in with the user account, which failed.
+
+Next, I checked the user’s account status in Microsoft Entra and found that the account was disabled. Since a disabled account prevents all authentication attempts, this explained why the user could not sign in.
+
+I re-enabled the account and tested the sign-in process again. This time, the login was successful and reached the first-time password change prompt, confirming that access had been restored.
+
+This experience reinforced the importance of checking basic account states early in the troubleshooting process before moving on to more complex steps like password resets.

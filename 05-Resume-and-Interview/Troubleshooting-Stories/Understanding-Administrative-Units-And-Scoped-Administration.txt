@@ -1,0 +1,13 @@
+While working in Microsoft Entra, I came across Administrative Units and initially found them a bit confusing because they looked similar to groups at first glance.
+
+When I first created one and started adding users and groups to it, I assumed it might behave like a group where membership automatically gives permissions. But as I explored further, I realized that wasn’t the case.
+
+An Administrative Unit is really a scoped management container. When you add users, groups, or devices to it, you’re not giving them access to anything. Instead, you’re defining a boundary around those objects.
+
+The key part that clicked for me was understanding how admins interact with that boundary. Admins don’t automatically get permissions just because they’re associated with the Administrative Unit. Instead, you have to assign a role to an admin at the scope of that Administrative Unit.
+
+That role defines what actions the admin can perform, and the Administrative Unit defines where they can perform those actions. So the admin’s permissions are limited only to the users, groups, and devices inside that unit.
+
+That helped me clearly separate it from groups. Groups are about giving access to users, while Administrative Units are about limiting administrative control.
+
+Once I understood that distinction, it made a lot more sense how scoped administration works in Entra and how organizations can delegate control without giving admins full access across the entire tenant.

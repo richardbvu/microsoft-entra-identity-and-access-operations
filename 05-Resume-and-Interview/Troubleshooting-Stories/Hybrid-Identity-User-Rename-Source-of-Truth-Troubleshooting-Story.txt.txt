@@ -1,0 +1,11 @@
+Unable to Rename Synced Entra User
+
+While reviewing users in Microsoft Entra Admin Center, I tried to rename one of the accounts from an earlier lab environment. The change would not apply even though I had administrative permissions.
+
+I checked the user properties and noticed the account was synchronized from on-premises Active Directory. After confirming the sync status, I realized the source of authority for that account was the on-prem directory.
+
+The source of authority means the system that controls and owns the user’s identity attributes. For synced accounts, the source of authority is the on-premises Active Directory, not Microsoft Entra.
+
+Because of that, the change could not be made in the cloud. The correct approach is to modify the user in Active Directory and allow Entra Connect to synchronize the update to Microsoft Entra.
+
+That situation helped reinforce the importance of understanding where identity data is managed, especially in hybrid environments.

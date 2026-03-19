@@ -1,0 +1,36 @@
+Microsoft Entra Identity and Access Operations - Skills Proven
+
+Identity and Access Management:
+- Managed cloud-only user accounts in Microsoft Entra
+- Performed user lifecycle operations including creation, modification, deletion, and restoration
+- Understood differences between cloud-only and hybrid (synced) identities
+
+Authentication and Sign-In Troubleshooting:
+- Diagnosed and resolved user sign-in failures caused by account disablement and incorrect identity formats
+- Validated authentication flows including first-time login and password change prompts
+- Identified user behavior patterns that impact authentication (e.g., incorrect UPN usage)
+
+Group and Access Management:
+- Created and managed security groups for access control
+- Understood assigned vs dynamic group membership (including licensing limitations)
+- Distinguished between access control (groups) and administrative scope (Administrative Units)
+
+RBAC and Administrative Concepts:
+- Demonstrated understanding of role-based access control (RBAC) in Microsoft Entra
+- Understood role assignment limitations in Entra ID Free
+- Applied concepts of scoped administration using Administrative Units
+
+Troubleshooting Methodology:
+- Followed structured troubleshooting processes: reproduce → isolate → validate → resolve
+- Avoided assumptions by verifying account state, identity format, and configuration
+- Differentiated between user error, configuration issues, and system limitations
+
+Documentation and Support Practices:
+- Created support-style tickets with clear symptoms, impact, troubleshooting, and resolution
+- Produced structured build evidence and troubleshooting notes
+- Developed interview-ready troubleshooting stories based on real scenarios
+
+Platform Awareness:
+- Worked within constraints of Microsoft Entra ID Free licensing
+- Identified feature limitations and adjusted troubleshooting approach accordingly
+- Maintained realistic, enterprise-aligned lab practices

@@ -1,0 +1,24 @@
+Ticket:
+Unable to Rename Microsoft Entra User Because Account Is Synced From On-Premises Active Directory
+
+Impact:
+Administrator was unable to modify the display name of an existing user account in Microsoft Entra Admin Center.
+
+Symptoms:
+- Attempted to edit a user account from Microsoft Entra Admin Center → Identity → Users → All users
+- Display name change could not be completed from the cloud interface
+- User account showed indicators that it was synchronized from an on-premises Active Directory environment
+
+Troubleshooting:
+- Opened Microsoft Entra Admin Center
+- Navigated to Identity → Users → All users
+- Selected the affected user account
+- Attempted to modify the display name
+- Reviewed the On-premises sync status for the user
+- Confirmed the user account was synchronized from the on-premises CORP Active Directory environment
+
+Resolution:
+The user account is synchronized from on-premises Active Directory, meaning the source of authority for identity attributes is the on-premises directory.
+
+- User name and other identity attribute changes must be performed in Active Directory Users and Computers (ADUC) on the domain controller
+- After the change is made on-premises, Microsoft Entra Connect synchronization updates the user attributes in Microsoft Entra

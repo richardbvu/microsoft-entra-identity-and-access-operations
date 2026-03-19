@@ -1,0 +1,11 @@
+I worked with security groups in Microsoft Entra and used that experience to better understand how access control and administrative permissions are structured.
+
+A security group in Entra is used to organize users so that access, permissions, or policies can be assigned to the group instead of managing each user individually.
+
+While working with groups, I learned there are two main types of membership: assigned and dynamic. Assigned membership means you manually add users to the group, which gives you direct control but requires ongoing maintenance. Dynamic membership, on the other hand, uses rules based on user attributes, such as department or job title, to automatically add or remove users from the group. This allows group membership to update automatically as user attributes change.
+
+I then explored how these groups relate to role-based access control, or RBAC. RBAC is the system used in Entra to assign administrative permissions by defining roles, such as User Administrator, that control what actions someone can perform.
+
+I attempted to use a group to assign an administrative role so that multiple users could inherit the same permissions through that group. However, my tenant did not support role assignment to groups due to licensing limitations. Even though I couldn’t complete that configuration in the lab, it helped me understand how RBAC with groups works in a full environment.
+
+The key takeaway for me was understanding that group membership and RBAC are separate but connected layers. Group membership determines who is grouped together, while RBAC defines what permissions are granted. In a fully licensed environment, dynamic groups could be used to automatically manage which users receive certain administrative roles, making access control more scalable and efficient.
