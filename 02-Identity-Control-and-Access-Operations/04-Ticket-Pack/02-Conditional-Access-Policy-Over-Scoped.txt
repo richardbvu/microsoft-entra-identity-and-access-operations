@@ -1,0 +1,39 @@
+TICKET: Conditional Access Policy Over Scoped 
+
+User:
+Non-pilot cloud user (Mars Lopez)
+
+Issue:
+A non-pilot user was unexpectedly prompted for multi-factor authentication during sign-in.
+
+Impact:
+The Conditional Access MFA pilot affected users outside the intended test scope. This could cause unnecessary sign-in interruptions and user confusion if deployed in a real tenant.
+
+Initial Observations:
+The custom Conditional Access policy was originally scoped to Carol Mercer only and confirmed working. During testing, the policy scope was changed to All users while emergency admin accounts remained excluded. A non-pilot user then received an MFA requirement during sign-in.
+
+Troubleshooting Steps:
+1. Reviewed the custom Conditional Access policy.
+2. Confirmed the policy was set to On.
+3. Confirmed the policy grant control was Require multifactor authentication.
+4. Confirmed emergency admin accounts were excluded.
+5. Identified that the policy Include setting had been changed from Carol Mercer only to All users.
+6. Tested sign-in with a non-pilot user.
+7. Confirmed the non-pilot user was unexpectedly prompted for MFA.
+8. Reviewed interactive sign-in logs with Status set to All.
+9. Checked sign-in details to confirm Conditional Access policy impact.
+10. Changed the policy scope back to Selected users and groups.
+11. Re-added only Carol Mercer as the intended pilot user.
+12. Retested with the same non-pilot user.
+
+Root Cause:
+The Conditional Access policy was over-scoped. It was changed from a single pilot user to All users, which caused users outside the intended pilot group to be affected by the MFA requirement.
+
+Fix:
+Changed the policy assignment from All users back to Selected users and groups, with only Carol Mercer included. Emergency admin accounts remained excluded.
+
+Validation:
+Retested sign-in with the same non-pilot user and confirmed the unexpected MFA prompt no longer appeared. Reviewed sign-in logs to confirm the custom pilot policy no longer applied to the non-pilot user.
+
+Prevention Note:
+Use pilot users or pilot groups before expanding Conditional Access policies. Avoid using All users unless the policy has been validated in report-only mode, emergency admin accounts are excluded, and overlapping policies have been reviewed.

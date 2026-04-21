@@ -1,0 +1,18 @@
+[2026-04-16]
+
+Authentication-Strength-Method-Mismatch
+
+- Carol Mercer has Software OATH / Google Authenticator registered
+- Normal MFA policy works with Carol’s OATH code
+- Created/tested CA policy requiring Phishing-resistant MFA
+- Both normal MFA and phishing-resistant policies applied to Carol
+- Carol could satisfy normal MFA but could not satisfy phishing-resistant MFA
+- Root cause: registered method did not meet required authentication strength
+- Returned policy to normal MFA / safe state
+- Retested Carol sign-in successfully with Software OATH
+
+Takeaway:
+- Multiple CA policies can apply at the same time
+- The user must satisfy the combined requirements
+- Having MFA registered does not mean the user can satisfy every MFA-related CA policy
+- Authentication strength controls the required quality/type of MFA

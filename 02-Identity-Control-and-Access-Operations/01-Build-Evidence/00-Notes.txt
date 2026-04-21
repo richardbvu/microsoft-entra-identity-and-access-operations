@@ -1,0 +1,91 @@
+[2026-04-15]
+Conditional Access Safety and Policy Builds
+
+- Created CA-PILOT-Require-MFA and scoped it to Carol Mercer as the pilot user
+- Excluded the emergency admin accounts before testing
+- Started the policy in Report-only mode
+- Signed in as Carol and checked the interactive sign-in logs
+- Used the What If tool to confirm the policy matched Carol
+- Learned that Report-only results show under the Report-only tab, not the main quick view
+- Confirmed the policy matched Carol and would require MFA if enforced
+
+
+[2026-04-15]
+Conditional Access Enforcement MFA
+
+- Disabled Security Defaults so the custom Conditional Access policy could be enforced
+- Turned CA-PILOT-Require-MFA from Report-only to On
+- Signed in as Carol and confirmed MFA was required
+- Carol used her existing Google Authenticator method successfully
+- Learned that Security Defaults had been enforcing MFA earlier
+- Learned that MFA registration and MFA enforcement are separate things
+- Confirmed the custom Conditional Access policy applied and enforced MFA correctly
+
+
+[2026-04-16]
+Authentication Methods MFA and Authentication Strengths
+
+- Reviewed the Authentication methods policy, Carol’s registered methods, and the built-in authentication strengths
+- Confirmed Carol uses Google Authenticator and Entra shows it as a Software OATH token
+- Learned that Conditional Access decides when MFA is required
+- Learned that Authentication methods policy decides which methods are allowed
+- Learned that the user’s registered methods decide what they can actually use
+- Tested that Carol could complete normal MFA with Software OATH but could not satisfy phishing-resistant MFA
+- Confirmed that having MFA registered does not always mean the user can satisfy every MFA-related policy
+
+[2026-04-17]
+Self Service Password Reset
+
+- Enabled SSPR for Selected users
+- Used SG-Entra-SSPR-Pilot as the pilot group
+- Added Carol Mercer to the SSPR pilot group
+- Set password reset to require 1 method
+- Left security questions off
+- Confirmed Software OATH is enabled in Authentication methods policy
+- Signed in as Carol and completed SSPR setup using the existing Authenticator app method
+
+[2026-04-17]
+Dynamic User and Device Groups
+
+- Created dynamic security group: SG-DYN-User-Dept-IT
+- Used dynamic membership rule based on Department = IT
+- Used Carol Mercer as the pilot user
+- Carol already had Department set to IT
+- Refreshed the group and confirmed Carol was added automatically
+- Membership was assigned by the rule, not by manual group assignment
+- Dynamic group logic worked as expected for the user attribute
+
+[2026-04-17]
+
+Dynamic Device Groups
+
+- Created a dynamic device security group for hybrid joined Windows devices
+- Used a two-expression rule with device trust type and Windows OS
+- Reviewed the device properties first to confirm the join type and OS matched the rule
+- Learned that device rules use device attributes, not user attributes
+- Learned that the device page shows friendly labels, while dynamic membership rules can use backend values like ServerAD
+- Saved the group and refreshed membership
+- Confirmed the VM was added automatically based on the rule
+
+[2026-04-17]
+
+Temporary Access Pass and Recovery
+
+- Reviewed the Temporary Access Pass policy and confirmed it was already enabled for all users
+- Used Dan Toro as the pilot user for TAP testing
+- Created a new Temporary Access Pass for Dan after missing the first code the first time
+- Learned that the TAP value is only shown once, so it has to be copied immediately when it is created
+- Used the TAP to get Dan into Security info instead of relying on his normal sign-in method
+- Confirmed TAP works as a temporary recovery or onboarding bridge, not as a permanent method
+- Learned that the real goal after using TAP is to make sure the user leaves with a working long-term sign-in method
+
+[2026-04-21]
+
+Sign-In Logs and Validation
+
+- Reviewed the sign-in events page and confirmed the different sign-in categories
+- Opened successful and interrupted sign-ins and compared the details
+- Used sign-in details to review MFA, Conditional Access, and report-only results
+- Used filters to narrow events by user and status
+- Confirmed sign-in logs were already used throughout earlier sections for troubleshooting
+- This section reinforced how to validate what actually happened during a sign-in

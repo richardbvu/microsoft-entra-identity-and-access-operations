@@ -1,0 +1,6 @@
+Built and validated Microsoft Entra identity access controls by deploying Conditional Access policies in report-only and enforced modes, analyzing sign-in and report-only results, and troubleshooting scope and authentication-strength mismatches across MFA workflows. 
+
+
+Configured Microsoft Entra authentication and recovery operations by managing authentication methods, self-service password reset, Temporary Access Pass, and dynamic user/device groups to support secure user recovery, method registration, and attribute-based access targeting. 
+
+

@@ -1,0 +1,6 @@
+- Observed Conditional Access showing "Not applied" in sign-in quick view
+- Initially thought policy was not working
+- Opened sign-in details and checked Report-only tab
+- Found policy evaluation there instead
+- Confirmed policy matched and would require MFA
+- Validated again using What If tool

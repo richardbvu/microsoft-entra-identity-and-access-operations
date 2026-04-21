@@ -1,0 +1,13 @@
+Situation:
+While testing a Conditional Access policy in Microsoft Entra, I noticed that the sign-in logs showed "Not applied," which made it seem like the policy was not working as expected.
+
+Task:
+My goal was to validate whether the policy was actually functioning correctly before enabling it, since applying it incorrectly could impact user access or cause unintended lockouts.
+
+Action:
+I first reviewed the Conditional Access policy configuration to confirm correct user targeting, exclusions, and grant controls. Then I analyzed the sign-in logs and noticed that the quick view only reflected enforced policies. I opened the detailed sign-in event and discovered a separate "Report-only" tab, where the policy evaluation was displayed.
+
+I confirmed that the user and resource matched the policy and that the policy would require multi-factor authentication if enforced. To further validate the behavior, I used the Conditional Access What If tool to simulate the sign-in scenario and confirmed that the policy scope and conditions were correctly configured.
+
+Result:
+I determined that the policy was functioning correctly in report-only mode and that the "Not applied" result was due to how sign-in logs separate enforced policies from report-only evaluations. This allowed me to confidently validate the policy before enabling it and avoid potential misconfiguration.

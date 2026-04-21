@@ -1,0 +1,93 @@
+[2026-03-13]
+Environment Background
+
+Before starting this project environment, I previously built an Active Directory lab and successfully configured Microsoft Entra Connect, creating a hybrid identity environment. 
+
+Because of that configuration, some user accounts in the tenant are synchronized from on-premises Active Directory and cannot be fully managed from the cloud. 
+
+The original CORP environment is now legacy, and the current project work focuses only on the new project admin account and newly created lab users.
+
+[2026-03-13]
+Tenant validations
+
+Validated:
+What tenant you are in?
+Who the admin accounts are?
+Whether users are cloud-only or synced?
+Whether Entra Connect / hybrid identity exists?
+
+Richard Vu
+- User type: Member
+- Synced from on-premises: No
+- Notes: Original admin created with Entra
+
+Richard Global Admin
+- User type: Member
+- Synced from on-premises: No
+- Notes: User with Global Admin/Hybrid Identity Admin created for Entra connect
+
+[2026-03-14]
+Cloud User Management
+
+- Created three cloud-only users in Microsoft Entra Admin Center
+- Updated profile fields for selected users, including job title, department, office location, and usage location
+- Disabled sign-in for one test user by clearing Account enabled
+- Verified blocked sign-in behavior by testing the account through the Microsoft sign-in page
+- Re-enabled the same user account after testing
+- Reset the password for Adri Castillo
+- Deleted Lena White and restored the account from Deleted users
+- Confirmed core cloud user lifecycle actions can be performed in the tenant
+
+[2026-03-15]
+Role Assignment
+
+- Reviewed built-in administrative roles in Microsoft Entra Admin Center
+- Selected the User Administrator role for testing
+- Assigned the role to Carol Mercer
+- Verified the role assignment
+- Removed the role after testing
+- Confirmed delegated permissions can be assigned and removed through Microsoft Entra RBAC (Role-Based Access Control)
+
+[2026-03-16]
+Sign in and Audit Logs
+
+- Reviewed Microsoft Entra sign-in logs to identify user authentication activity.
+- Filtered sign-in activity by lab user account and opened event details for closer review.
+- Reviewed Microsoft Entra audit logs to identify administrative actions performed in the tenant.
+- Confirmed that sign-in logs track authentication activity and audit logs track administrative changes.
+
+[2026-03-17]
+Groups and Membership Management
+
+- Created a Security group in Microsoft Entra named IT-Support-Team.
+- Added Carol Mercer, Adri Castillo, and Lena White as group members.
+- Reviewed group membership and confirmed users were successfully added.
+- This step was used to understand how users are organized into groups for access control scenarios.
+
+- Explored role-based access control (RBAC) with groups but identified a limitation in the lab environment.
+- The tenant is using Microsoft Entra ID Free, which does not support role-assignable groups.
+- Because of this, administrative roles could not be assigned to the group.
+- This clarified the difference between basic group membership management and RBAC-enabled group access, as well as the impact of licensing on identity management capabilities.
+
+[2026-03-17]
+Groups and Membership Management
+
+- Created a Security group in Microsoft Entra named IT-Support-Team.
+- Added Carol Mercer, Adri Castillo, and Lena White as group members.
+- Reviewed the group overview and membership list after creation.
+- This step was used to understand how groups are managed in Entra and how access can be organized at the group level instead of assigning settings to individual users one at a time.
+
+[2026-03-17]
+Administrative Units and Scoped Administration
+
+- Navigated to Administrative Units in the Entra Admin Center to review scoped administration capabilities.
+- Verified the Admin units overview page and documented tenant visibility for administrative units.
+- Reviewed available membership types, including Assigned, Dynamic User, and Dynamic Device.
+- Created Branch Office IT as a dynamic user administrative unit using Department = IT
+- Opened the administrative unit and reviewed available management areas such as users, groups, devices, and roles.
+- Confirmed users are added automatically to the administrative unit based on the membership rule
+- Learned that dynamic administrative units can be either dynamic users or dynamic devices, not both in the same AU
+- Reviewed the difference between a dynamic group and a dynamic administrative unit: groups are for targeting, administrative units are for delegated admin scope
+- Assigned Password Administrator at the Branch Office IT administrative unit scope
+- Confirmed the difference between Branch Office IT scope and Directory scope when reviewing role assignments
+- Learned that directory-scoped role assignments still cover objects inside the administrative unit, while AU-scoped assignments are the narrower delegated-admin example

@@ -1,0 +1,34 @@
+TICKET: Authentication-Strength-Method-Mismatch
+
+Issue:
+User (Carol Mercer) could complete normal MFA but could not satisfy a Conditional Access policy requiring phishing-resistant MFA.
+
+Impact:
+User access was interrupted because the registered MFA method did not meet the stronger authentication requirement. This could cause confusion because the user technically had MFA configured, but not the correct type of MFA for the policy.
+
+Initial Observations:
+Carol Mercer had a working MFA method registered and was able to complete normal MFA using a Google Authenticator one-time code. A separate Conditional Access policy was then configured to require phishing-resistant MFA. During testing, Carol could not satisfy the stronger requirement with her existing Software OATH method.
+
+Troubleshooting Steps:
+1. Reviewed Carol Mercer’s registered authentication methods.
+2. Confirmed Carol had Software OATH token / OATH TOTP registered.
+3. Confirmed Carol could complete normal MFA using Google Authenticator.
+4. Reviewed built-in authentication strengths.
+5. Confirmed phishing-resistant MFA requires stronger methods than Software OATH.
+6. Created/tested a Conditional Access policy requiring phishing-resistant MFA.
+7. Confirmed the policy applied to Carol Mercer.
+8. Observed that Carol could not complete sign-in using her existing Software OATH method.
+9. Returned the phishing-resistant policy to a safe state.
+10. Retested normal MFA and confirmed Carol could sign in again.
+
+Root Cause:
+Carol’s registered MFA method did not meet the required authentication strength. Software OATH / Google Authenticator can satisfy normal MFA, but it does not satisfy phishing-resistant MFA.
+
+Fix:
+Returned the phishing-resistant MFA policy to Report-only or Off and continued using the normal MFA policy for Carol Mercer. A real fix in production would require registering an approved phishing-resistant method, such as a FIDO2 security key, passkey, Windows Hello for Business, or certificate-based authentication.
+
+Validation:
+Carol Mercer successfully completed normal MFA using her existing Software OATH method after the stronger phishing-resistant requirement was removed from enforcement.
+
+Prevention Note:
+Before enforcing authentication strength policies, confirm that targeted users have registered methods that satisfy the required strength. Do not assume that having MFA registered means the user can satisfy every MFA-related Conditional Access policy.

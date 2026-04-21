@@ -1,0 +1,23 @@
+Microsoft Entra Identity and Access Operations Lab
+
+Built and validated a Microsoft Entra lab to simulate real-world identity, access, authentication, and delegated administration scenarios.
+
+Performed core Microsoft Entra operations including Conditional Access policy testing, MFA and authentication method validation, authentication strengths review, self-service password reset configuration, Temporary Access Pass recovery, dynamic user and device group administration, sign-in log validation, and scoped administration through administrative units.
+
+Executed hands-on troubleshooting scenarios focused on identity and access behavior, including:
+- resolving Conditional Access scope issues that affected the wrong user
+- diagnosing authentication strength mismatches where a user had MFA but could not satisfy phishing-resistant requirements
+- validating self-service password reset registration and recovery behavior
+- using Temporary Access Pass to support recovery and authentication method setup
+- troubleshooting dynamic group targeting failures caused by inconsistent user attribute values
+
+Documented all work using structured build evidence, troubleshooting notes, support-style tickets, reusable runbooks, and interview-ready troubleshooting stories aligned to real identity operations and entry-level IT support workflows.
+
+Demonstrated understanding of:
+- Microsoft Entra identity and access administration
+- Conditional Access policy design, validation, and troubleshooting
+- MFA, authentication methods, and authentication strengths
+- self-service password reset and Temporary Access Pass recovery
+- sign-in log analysis and authentication validation
+- dynamic user and device targeting
+- scoped administration with administrative units

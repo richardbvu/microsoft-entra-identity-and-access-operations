@@ -1,0 +1,13 @@
+Situation:
+While working in Microsoft Entra, I tested the difference between normal MFA and authentication strengths. Carol Mercer already had MFA configured using a Software OATH token through Google Authenticator, and she was able to complete normal MFA successfully.
+
+Task:
+My goal was to understand whether Carol’s existing MFA method could satisfy a stronger Conditional Access requirement, specifically phishing-resistant MFA.
+
+Action:
+I first reviewed Carol Mercer’s registered authentication methods and confirmed that she had a Software OATH token registered. I then reviewed the built-in authentication strengths in Entra and compared normal multifactor authentication, passwordless MFA, and phishing-resistant MFA.
+
+After that, I created a Conditional Access test policy requiring phishing-resistant MFA and targeted Carol Mercer. During testing, I observed that Carol’s Google Authenticator code could satisfy normal MFA, but it could not satisfy the phishing-resistant MFA requirement. I also learned that multiple Conditional Access policies can apply at the same time, and the user must satisfy the combined requirements.
+
+Result:
+I confirmed that having MFA registered does not automatically mean a user can satisfy every MFA-related Conditional Access policy. Carol’s Software OATH method worked for normal MFA, but it was not strong enough for phishing-resistant MFA. This helped me understand how authentication strengths control the quality or type of MFA required for access, not just whether MFA exists.

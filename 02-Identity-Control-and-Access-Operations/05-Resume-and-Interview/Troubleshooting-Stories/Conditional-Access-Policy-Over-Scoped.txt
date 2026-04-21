@@ -1,0 +1,15 @@
+Situation:
+While working on a Microsoft Entra Conditional Access lab, I was testing a custom policy named CA-PILOT-Require-MFA. The policy was originally scoped to Carol Mercer only and was confirmed working. During a controlled break/fix test, the policy scope was changed to All users, which caused a non-pilot user to receive an unexpected MFA prompt.
+
+Task:
+My goal was to troubleshoot why a user outside the intended pilot scope was being affected, confirm the root cause using policy settings and sign-in logs, and then restore the policy to the correct scope without impacting emergency admin access.
+
+Action:
+I reviewed the Conditional Access policy configuration and confirmed that the policy was turned On, the grant control required multifactor authentication, and emergency admin accounts were excluded. I then checked the user assignment section and found that the policy had been changed from Selected users and groups to All users.
+
+To confirm the impact, I tested sign-in with a non-pilot user and observed that the user was unexpectedly required to complete MFA. I reviewed the interactive sign-in logs with the status filter set to All and checked the Conditional Access details to confirm the custom policy was affecting the user.
+
+After identifying the issue, I changed the policy scope back from All users to Selected users and groups, included only Carol Mercer, and kept the emergency admin accounts excluded. I then retested with the same non-pilot user to confirm the unexpected MFA prompt no longer appeared.
+
+Result:
+The issue was resolved by correcting the Conditional Access policy scope. I confirmed that the non-pilot user was no longer affected, while the intended pilot user remained covered by the policy. This helped me understand why Conditional Access policies should be tested with pilot users first, why All users has a high blast radius, and why emergency admin exclusions are important before enforcing access policies.

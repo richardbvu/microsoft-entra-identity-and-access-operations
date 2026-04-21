@@ -1,0 +1,48 @@
+TICKET:
+
+Conditional Access policy does not appear to be applying during sign-in testing.
+
+Impact:
+- Conditional Access validation appears incorrect
+- Could lead to incorrect assumption that policy is not working
+- Potential risk of enabling policies without proper validation
+
+Issue Summary:
+During sign-in testing for user Carol Mercer, the sign-in logs showed "Conditional Access: Not applied" in the quick view. This initially suggested that the Conditional Access policy (CA-PILOT-Require-MFA) was not functioning as expected.
+
+Troubleshooting Steps:
+1. Verified Conditional Access policy configuration
+   - User (Carol Mercer) correctly included
+   - Break-glass accounts excluded
+   - Target resources set to All cloud apps
+   - Grant control set to Require MFA
+   - Policy set to Report-only
+
+2. Reviewed sign-in logs (interactive)
+   - Observed multiple sign-in events
+   - Quick view consistently showed "Not applied"
+
+3. Opened detailed sign-in event
+   - Navigated to Conditional Access tab → confirmed no enforced policies applied
+   - Navigated to Report-only tab → located CA-PILOT-Require-MFA policy
+
+4. Analyzed report-only evaluation
+   - User matched
+   - Resource matched
+   - Grant control: Require MFA
+   - Result: User action required (would require MFA if enforced)
+
+5. Validated using Conditional Access What If tool
+   - Confirmed policy would apply to Carol Mercer
+   - Confirmed MFA requirement under simulated conditions
+
+Resolution:
+Determined that the Conditional Access policy was functioning correctly in Report-only mode. The "Not applied" status in the sign-in quick view only reflects enforced policies, while Report-only evaluations are shown in the separate Report-only tab within the sign-in details.
+
+Root Cause:
+Misinterpretation of sign-in log results due to separation of enforced policies and report-only evaluations within the Conditional Access logging interface.
+
+Prevention:
+- Always review both the Conditional Access and Report-only tabs when validating policies
+- Use the What If tool to confirm policy scope before enforcement
+- Avoid relying solely on quick view results in sign-in logs

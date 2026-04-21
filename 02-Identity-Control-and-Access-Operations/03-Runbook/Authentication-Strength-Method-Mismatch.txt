@@ -1,0 +1,119 @@
+# Authentication Strength Method Mismatch
+
+## Purpose
+
+Use this runbook when a user has MFA registered but cannot complete sign-in because a Conditional Access policy requires a stronger authentication method than the user has available.
+
+## Scope
+
+This runbook applies to Microsoft Entra Conditional Access policies that use authentication strengths, including normal MFA, passwordless MFA, and phishing-resistant MFA.
+
+## Common Symptoms
+
+- User says they already have MFA but still cannot sign in
+- User is prompted for a stronger authentication method
+- User cannot satisfy a phishing-resistant MFA requirement
+- Sign-in logs show a Conditional Access policy requiring authentication strength
+- User has an MFA method registered, but it does not meet the required strength
+
+## Quick Rule
+
+Having MFA registered does not always mean the user can satisfy every MFA-related policy.
+
+The user’s method must be:
+- allowed by authentication methods policy
+- registered on the user account
+- strong enough for the Conditional Access authentication strength requirement
+
+## Troubleshooting Steps
+
+### 1. Identify the Affected User
+
+Confirm the affected user, sign-in time, application/resource, and the message or prompt shown during sign-in.
+
+### 2. Review the Conditional Access Policy
+
+Open the Conditional Access policy that affected the user.
+
+Check:
+- policy state
+- included users or groups
+- excluded users or groups
+- target resources
+- grant controls
+
+Confirm whether the policy uses **Require multifactor authentication** or **Require authentication strength**.
+
+### 3. Identify the Required Authentication Strength
+
+If the policy uses authentication strength, confirm which strength is required.
+
+Common strengths:
+- Multifactor authentication
+- Passwordless MFA
+- Phishing-resistant MFA
+
+### 4. Review the User’s Registered Methods
+
+Open the affected user’s authentication methods page.
+
+Check which methods are registered and usable.
+
+Examples:
+- Microsoft Authenticator
+- Software OATH token
+- SMS
+- Temporary Access Pass
+- FIDO2 security key
+- Windows Hello for Business
+- Certificate-based authentication
+
+### 5. Compare the User’s Method to the Required Strength
+
+Determine whether the user’s registered method satisfies the required authentication strength.
+
+Example:
+- Software OATH / Google Authenticator works for normal MFA
+- Software OATH does not satisfy phishing-resistant MFA
+
+### 6. Check Sign-In Logs
+
+Open the affected user’s interactive sign-in event.
+
+Review:
+- Conditional Access tab
+- policy name
+- grant controls
+- authentication requirement
+- result
+- failure or interruption details
+
+Use "Status: All" so interrupted or failed sign-ins are not missed.
+
+### 7. Fix the Mismatch
+
+Choose the correct fix based on the situation.
+
+Possible fixes:
+- Change the Conditional Access policy back to normal MFA
+- Return the policy to Report-only while testing
+- Exclude the user temporarily if appropriate
+- Register a method that satisfies the required strength
+- Assign the policy only to users who are ready for the stronger method
+
+### 8. Retest the User
+
+Have the user sign in again and confirm they can complete the required authentication flow.
+
+### 9. Validate Policy Scope
+
+Confirm the policy still applies only to the intended users or groups.
+
+## Prevention
+
+- Test authentication strength policies in Report-only mode first
+- Confirm users have registered methods that satisfy the required strength
+- Pilot stronger authentication policies with a small group
+- Avoid assuming all MFA methods are equal
+- Review sign-in logs after policy changes
+- Document which methods satisfy each authentication strength

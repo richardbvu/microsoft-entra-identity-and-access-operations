@@ -1,0 +1,60 @@
+Microsoft Entra Identity and Access Operations - Skills Proven
+
+Conditional Access and Access Policy Administration:
+- Built and validated Conditional Access policies in both report-only and enforced modes
+- Scoped policies to pilot users while excluding emergency admin accounts
+- Used What If analysis and sign-in logs to validate policy targeting and expected impact
+- Troubleshot Conditional Access scope issues and policy evaluation behavior
+
+MFA, Authentication Methods, and Authentication Strengths:
+- Reviewed and validated Authentication methods policy in Microsoft Entra
+- Confirmed Software OATH / Google Authenticator sign-in behavior for pilot users
+- Compared normal MFA requirements with stronger authentication strength requirements
+- Troubleshot cases where a user had MFA registered but could not satisfy phishing-resistant MFA
+
+Self-Service Password Reset and Recovery:
+- Enabled and scoped self-service password reset to a pilot group
+- Validated registration-at-sign-in behavior for SSPR
+- Confirmed existing authenticator-based methods could satisfy the configured 1-method reset requirement
+- Supported recovery and registration workflows through Security info
+
+Temporary Access Pass Administration:
+- Reviewed Temporary Access Pass policy configuration for the tenant
+- Created Temporary Access Pass for a pilot user
+- Used TAP to support sign-in to Security info for recovery and method setup
+- Confirmed TAP works as a temporary bridge rather than a permanent authentication method
+
+Dynamic User and Device Group Administration:
+- Created dynamic user groups based on user attributes such as Department
+- Created dynamic device groups based on device trust type and operating system
+- Validated automatic membership updates without manual group assignment
+- Troubleshot dynamic targeting failures caused by inconsistent attribute values
+
+Administrative Units and Scoped Administration:
+- Reviewed administrative units as a boundary for delegated administration
+- Created and validated a dynamic user administrative unit using Department-based membership
+- Compared directory-scoped role assignments with administrative-unit-scoped assignments
+- Assigned and reviewed Password Administrator at administrative unit scope
+
+Sign-In Logs and Access Validation:
+- Reviewed interactive and non-interactive sign-in events in Microsoft Entra
+- Used sign-in details to validate MFA success, Conditional Access impact, and report-only evaluation results
+- Compared successful, interrupted, and filtered sign-in events
+- Confirmed sign-in logs as a primary troubleshooting source for identity and access issues
+
+Troubleshooting Methodology:
+- Followed structured break/fix/validate workflows across identity and access scenarios
+- Compared policy settings, user attributes, and sign-in behavior to isolate root cause
+- Distinguished between scope issues, method mismatches, recovery prerequisites, and data-quality problems
+- Avoided unnecessary changes when the issue was caused by policy logic, propagation, or inconsistent attributes
+
+Documentation and Support Practices:
+- Created structured build evidence and troubleshooting evidence
+- Produced support-style tickets with issue, impact, root cause, fix, validation, and prevention notes
+- Developed reusable runbooks for Microsoft Entra identity and access scenarios
+- Created interview-ready troubleshooting stories based on real lab scenarios
+
+Platform Awareness:
+- Understood the difference between Microsoft Entra admin tasks, Microsoft 365 admin tasks, and user-side recovery flows
+- Recognized how Conditional Access, MFA methods, SSPR, TAP, dynamic groups, and administrative units connect in real support workflows
+- Maintained realistic, enterprise-aligned lab practices using pilot users, scoped testing, and emergency admin separation

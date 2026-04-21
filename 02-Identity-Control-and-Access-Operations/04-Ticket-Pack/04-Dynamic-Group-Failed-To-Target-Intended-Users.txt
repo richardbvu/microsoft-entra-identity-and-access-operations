@@ -1,0 +1,33 @@
+TICKET: Dynamic Group Failed To Target Intended-Users
+
+Issue:
+An intended user (Dan Toro) was not added to the dynamic group SG DYN User Dept IT.
+
+Impact:
+The user was not targeted by the group as expected. Any access, pilot targeting, or future assignment tied to that group would not apply to the user.
+
+Initial Observations:
+Carol Mercer was added to the dynamic group successfully, but Dan Toro was missing. Both users were intended to be treated as part of the IT function.
+
+Troubleshooting Steps:
+1. Reviewed the dynamic group membership rule.
+2. Confirmed the rule was set to Department = IT.
+3. Checked Carol Mercer’s Department attribute.
+4. Confirmed Carol’s Department was IT and that she was added to the group.
+5. Checked Dan Toro’s Department attribute.
+6. Found Dan’s Department was set to IT Support instead of IT.
+7. Refreshed the dynamic group and confirmed Dan was not added.
+8. Standardized Dan’s Department value from IT Support to IT.
+9. Refreshed the group again and confirmed Dan was added automatically.
+
+Root Cause:
+The dynamic membership rule required an exact Department value of IT, but Dan Toro’s Department value was IT Support. The rule was correct, but the source attribute data was inconsistent.
+
+Fix:
+Changed Dan Toro’s Department value from IT Support to IT so it matched the existing dynamic group rule.
+
+Validation:
+After updating the Department value, Dan was added automatically to SG DYN User Dept IT. Carol remained in the group as expected.
+
+Prevention Note:
+This issue could technically have been worked around by adding another OR expression for IT Support in the dynamic rule, but that would make the rule more cluttered and less standardized over time. The cleaner fix was to standardize the user attribute data.

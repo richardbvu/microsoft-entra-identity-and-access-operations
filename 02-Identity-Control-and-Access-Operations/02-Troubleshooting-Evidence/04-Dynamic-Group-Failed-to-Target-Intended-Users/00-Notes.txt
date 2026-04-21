@@ -1,0 +1,12 @@
+[2026-04-17]
+Dynamic Group Failed to Target Intended Users
+
+- Used SG DYN User Dept IT with rule Department = IT
+- Carol matched because her Department was IT
+- Dan did not match because his Department was IT Support
+- Group rule was correct, but user data was inconsistent
+- Fixed Dan’s Department from IT Support to IT
+- Refreshed the group and confirmed Dan was added automatically
+- Learned that dynamic group targeting depends on exact attribute values
+- I could have added another OR expression for IT Support in the dynamic membership rule
+- That would have worked, but it would make the rule more messy and less standardized over time

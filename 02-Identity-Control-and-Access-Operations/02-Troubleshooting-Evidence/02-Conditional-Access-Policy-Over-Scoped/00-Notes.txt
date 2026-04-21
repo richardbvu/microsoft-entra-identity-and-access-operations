@@ -1,0 +1,29 @@
+[2026-04-15]
+Conditional-Access-Policy-Over-Scoped
+
+- CA-PILOT-Require-MFA was originally scoped to Carol Mercer only
+- Policy was turned On and confirmed working for Carol
+- Security Defaults had to be disabled before custom CA enforcement
+- After Security Defaults was disabled, Microsoft-managed CA policies appeared
+- Turned off overlapping Microsoft-managed MFA policies to keep testing clean
+- Kept emergency admin accounts excluded from the custom policy
+
+Break Test:
+- Changed custom policy scope from Carol only to All users
+- Tested sign-in with a non-pilot user
+- Non-pilot user was unexpectedly required to complete MFA
+- MFA was not completed during the first test
+
+Root Cause:
+- Custom CA policy was over-scoped to All users
+
+Fix:
+- Change policy scope back to Selected users and groups
+- Include only Carol Mercer
+- Keep emergency admin accounts excluded
+
+Takeaway:
+- Test CA policies with pilot users first
+- Avoid All users unless fully validated
+- Watch for overlapping Microsoft-managed policies
+- Use sign-in logs to prove policy impact

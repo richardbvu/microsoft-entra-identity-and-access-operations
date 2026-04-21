@@ -1,0 +1,108 @@
+# Over-Scoped Conditional Access Policy
+
+## Purpose
+
+Use this runbook when users outside the intended pilot group are unexpectedly affected by a Microsoft Entra Conditional Access policy.
+
+## Scope
+
+This runbook applies to Microsoft Entra Conditional Access policies where users are unexpectedly prompted for MFA, blocked, or affected by an access control because the policy scope is too broad.
+
+## Common Symptoms
+
+- A non-pilot user receives an unexpected MFA prompt
+- A user outside the intended group is blocked or challenged
+- Sign-in logs show a Conditional Access policy applied unexpectedly
+- A policy intended for one user or group appears to affect more users
+- Admins are unsure which policy caused the sign-in requirement
+
+## Quick Rule
+
+If a Conditional Access policy affects the wrong user, check policy assignments first.
+
+## Troubleshooting Steps
+
+### 1. Identify the Affected User
+
+Confirm the affected user, sign-in time, application/resource, and the access issue they experienced.
+
+### 2. Review Conditional Access Policy Assignments
+
+Open the suspected Conditional Access policy and review:
+- included users or groups
+- excluded users or groups
+- target resources
+- policy state
+
+Pay special attention to whether the policy is scoped to **All users** instead of a pilot user or pilot group.
+
+### 3. Confirm Emergency Admin Exclusions
+
+Verify that emergency or break-glass administrator accounts are excluded from the policy.
+
+A policy can still be over-scoped even when emergency accounts are excluded, but exclusions reduce the risk of administrator lockout.
+
+### 4. Review Grant Controls
+
+Check what the policy requires.
+
+Common grant controls include:
+- require multifactor authentication
+- require compliant device
+- require approved client app
+- require authentication strength
+- block access
+
+Confirm whether the affected user can satisfy the required control.
+
+### 5. Check Sign-In Logs
+
+Open the affected user’s interactive sign-in event in Microsoft Entra sign-in logs.
+
+Review:
+- Conditional Access tab
+- Report-only tab if applicable
+- policy name
+- result
+- grant controls
+- user/resource match details
+
+Use **Status: All** when filtering so interrupted or failed sign-ins are not missed.
+
+### 6. Check for Overlapping Policies
+
+Review other Conditional Access policies that may also target the user.
+
+Also check Microsoft-managed policies, especially:
+- MFA for all users
+- MFA for admins
+- MFA for Azure management
+- block legacy authentication
+
+Overlapping policies can make it harder to identify which policy caused the sign-in requirement.
+
+### 7. Correct the Policy Scope
+
+If the policy is over-scoped, change the assignment from **All users** back to **Selected users and groups**.
+
+Include only the intended pilot user or pilot group.
+
+Keep emergency administrator accounts excluded.
+
+### 8. Retest the Affected User
+
+Have the affected user sign in again and confirm that the unexpected MFA prompt, block, or access control no longer appears.
+
+### 9. Validate the Intended Pilot User
+
+Retest the intended pilot user or pilot group to confirm the policy still applies where expected.
+
+## Prevention
+
+- Start Conditional Access policies in report-only mode
+- Use pilot users or pilot groups before broad rollout
+- Avoid **All users** until the policy has been fully validated
+- Exclude emergency administrator accounts
+- Review Microsoft-managed policies for overlap
+- Check sign-in logs after policy changes
+- Document policy scope, exclusions, and validation results

@@ -1,0 +1,13 @@
+Situation:
+While working in Microsoft Entra, I created a dynamic security group called SG DYN User Dept IT. The rule was based on Department = IT, and the group was intended to target users in the IT function automatically.
+
+Task:
+My goal was to validate that the dynamic group would add the intended users correctly and troubleshoot why one expected user was missing from the group.
+
+Action:
+I first confirmed that Carol Mercer was added successfully, which told me the group itself and the basic rule were working. Then I checked the missing user, Dan Toro, and reviewed his profile attributes. I found that Carol’s Department value was IT, but Dan’s Department value was IT Support. Since the dynamic rule required an exact match to IT, Dan did not qualify for membership.
+
+I considered broadening the rule by adding another OR expression for IT Support, but that would have made the rule more cluttered and would have worked around inconsistent source data instead of fixing it cleanly. I chose to standardize the attribute by changing Dan’s Department value from IT Support to IT, then refreshed the group.
+
+Result:
+After standardizing the Department value, Dan was added automatically to the dynamic group. That showed me that dynamic groups depend not just on correct rule syntax, but also on consistent source attribute data. It also reinforced the importance of fixing data quality issues instead of masking them with increasingly messy rule logic.
