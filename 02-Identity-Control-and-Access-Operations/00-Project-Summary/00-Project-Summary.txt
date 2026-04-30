@@ -1,4 +1,4 @@
-Microsoft Entra Identity and Access Operations Lab
+Microsoft Entra Identity and Access Operations
 
 Built and validated a Microsoft Entra lab to simulate real-world identity, access, authentication, and delegated administration scenarios.
 
@@ -11,7 +11,7 @@ Executed hands-on troubleshooting scenarios focused on identity and access behav
 - using Temporary Access Pass to support recovery and authentication method setup
 - troubleshooting dynamic group targeting failures caused by inconsistent user attribute values
 
-Documented all work using structured build evidence, troubleshooting notes, support-style tickets, reusable runbooks, and interview-ready troubleshooting stories aligned to real identity operations and entry-level IT support workflows.
+Documented all work using structured build evidence, troubleshooting notes, support-style tickets, reusable runbooks, and interview-ready troubleshooting stories aligned to real identity operations and IT support workflows.
 
 Demonstrated understanding of:
 - Microsoft Entra identity and access administration
