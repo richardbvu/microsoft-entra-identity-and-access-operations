@@ -28,7 +28,7 @@ Recommended files and folders to review first:
 
 - [04-Ticket-Pack](./04-Ticket-Pack/)
 - [03-Runbook](./03-Runbook/)
-- [06-Resume-and-Interview](./06-Resume-and-Interview/)
+- [05-Resume-and-Interview](./05-Resume-and-Interview/)
 
 ## Skills Demonstrated
 - Microsoft Entra tenant administration  
@@ -50,4 +50,4 @@ Recommended files and folders to review first:
 - [02-Troubleshooting-Evidence](./02-Troubleshooting-Evidence/) — raw notes, screenshots, and observations  
 - [03-Runbook](./03-Runbook/) — reusable troubleshooting procedures  
 - [04-Ticket-Pack](./04-Ticket-Pack/) — polished ticket write-ups  
-- [06-Resume-and-Interview](./06-Resume-and-Interview/) — project packaging for job search  
+- [05-Resume-and-Interview](./05-Resume-and-Interview/) — project packaging for job search  
